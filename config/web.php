@@ -1,5 +1,7 @@
 <?php
 
+use kartik\datecontrol\Module;
+
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
@@ -43,14 +45,13 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
@@ -69,6 +70,22 @@ if (YII_ENV_DEV) {
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
         //'allowedIPs' => ['127.0.0.1', '::1'],
+    ];
+
+    $config['bootstrap'][] = 'datecontrol';
+    $config['modules']['datecontrol'] = [
+        'class' => 'kartik\datecontrol\Module',
+        // format settings for displaying data
+        'displaySettings' => [
+            Module::FORMAT_DATE => 'php:yyyy-M-dd',
+        ],
+        // format settings for seving data
+        'saveSettings' => [
+            Module::FORMAT_DATE => 'yyyy-M-dd',
+        ],
+        'displayTimezone' => 'UTC',
+        'saveTimezone' => 'UTC',
+        'autoWidget' => true,
     ];
 }
 

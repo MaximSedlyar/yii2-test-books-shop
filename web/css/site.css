@@ -36,6 +36,10 @@ body {
     font-style: italic;
 }
 
+.datepicker {
+    z-index: 9999 !important;
+}
+
 /* add sorting icons to gridview sort links */
 a.asc:after, a.desc:after {
     position: relative;
