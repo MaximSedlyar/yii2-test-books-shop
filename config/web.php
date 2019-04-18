@@ -77,7 +77,7 @@ if (YII_ENV_DEV) {
         'class' => 'kartik\datecontrol\Module',
         // format settings for displaying data
         'displaySettings' => [
-            Module::FORMAT_DATE => 'php:yyyy-M-dd',
+            Module::FORMAT_DATE => 'php:d-m-Y',
         ],
         // format settings for seving data
         'saveSettings' => [
